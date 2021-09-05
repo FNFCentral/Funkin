@@ -125,6 +125,9 @@
 	<!--In case you want to use nape with flixel-->
 	<!--<haxelib name="nape-haxe4" />-->
 
+	<!--Specific To FNF Central-->
+	<haxelib name="SuperSickAPI" if="html5"/>
+
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<!--Enable the Flixel core recording system-->
