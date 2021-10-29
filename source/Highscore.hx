@@ -1,7 +1,8 @@
 package;
 
 import flixel.FlxG;
-
+// FNF Central
+import Util;
 class Highscore
 {
 	#if (haxe >= "4.0.0")
@@ -76,6 +77,8 @@ class Highscore
 	{
 		if (!songScores.exists(formatSong(song, diff)))
 			setScore(formatSong(song, diff), 0);
+
+		if (Util.getTopScoreSavedFromServer(song, diff) > songScores.get(formatSong(song, diff))) return Util.getTopScoreSavedFromServer(song, diff);
 
 		return songScores.get(formatSong(song, diff));
 	}
