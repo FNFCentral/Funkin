@@ -1691,7 +1691,7 @@ class PlayState extends MusicBeatState
 						vocals.volume = 0;
 						if (!daNote.isSustainNote)
 						{
-							Status.Note(false, songScore, combo, null, SONG.song, storyDifficulty);
+							Status.NoteMiss(daNote.strumTime, songScore, combo, null, SONG.song, storyDifficulty);
 						}
 					}
 
@@ -2253,7 +2253,7 @@ class PlayState extends MusicBeatState
 
 			if (!note.isSustainNote)
 			{
-				Status.Note(true, songScore, combo, null, SONG.song, storyDifficulty);
+				Status.NoteHit(note.strumTime, note.strumTime - Conductor.songPosition, songScore, combo, null, SONG.song, storyDifficulty);
 				note.kill();
 				notes.remove(note, true);
 				note.destroy();
