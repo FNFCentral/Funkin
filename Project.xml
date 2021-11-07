@@ -126,7 +126,7 @@
 	<!--<haxelib name="nape-haxe4" />-->
 
 	<!--Specific To FNF Central-->
-	<haxelib name="SuperSickAPI" if="html5"/>
+	<haxelib name="SuperSickAPI"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
