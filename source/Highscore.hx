@@ -2,7 +2,10 @@ package;
 
 import flixel.FlxG;
 // FNF Central
+#if fnfcentral
 import Util;
+#end
+
 class Highscore
 {
 	#if (haxe >= "4.0.0")
@@ -39,7 +42,9 @@ class Highscore
 		#end
 
 		if (getWeekScore(week, diff) < score) {
+			#if fnfcentral
 			Util.saveUserExtraInfo(formatSong('week' + week, diff), score);
+			#end
 		}
 
 		var daWeek:String = formatSong('week' + week, diff);
@@ -81,7 +86,9 @@ class Highscore
 		if (!songScores.exists(formatSong(song, diff)))
 			setScore(formatSong(song, diff), 0);
 
+		#if fnfcentral
 		if (Util.getTopScoreSavedFromServer(song, diff) > songScores.get(formatSong(song, diff))) return Util.getTopScoreSavedFromServer(song, diff);
+		#end
 
 		return songScores.get(formatSong(song, diff));
 	}
@@ -91,7 +98,9 @@ class Highscore
 		if (!songScores.exists(formatSong('week' + week, diff)))
 			setScore(formatSong('week' + week, diff), 0);
 
+		#if fnfcentral
 		if (Util.getUserExtraInfoNumberFromServer(formatSong('week' + week, diff)) > songScores.get(formatSong('week' + week, diff))) return Util.getUserExtraInfoNumberFromServer(formatSong('week' + week, diff));
+		#end
 
 		return songScores.get(formatSong('week' + week, diff));
 	}

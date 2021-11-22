@@ -42,7 +42,9 @@ import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
 // FNF Central
+#if fnfcentral
 import Status;
+#end
 
 using StringTools;
 
@@ -1035,7 +1037,9 @@ class PlayState extends MusicBeatState
 		#end
 
 		// Sending Song To API
+		#if fnfcentral
 		Status.Start(SONG.song, storyDifficulty);
+		#end
 	}
 
 	var debugNum:Int = 0;
@@ -1592,7 +1596,9 @@ class PlayState extends MusicBeatState
 			vocals.stop();
 			FlxG.sound.music.stop();
 
+			#if fnfcentral
 			Status.Fail(songScore, null, SONG.song, storyDifficulty);
+			#end
 
 			openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
@@ -1691,7 +1697,9 @@ class PlayState extends MusicBeatState
 						vocals.volume = 0;
 						if (!daNote.isSustainNote)
 						{
+							#if fnfcentral
 							Status.NoteMiss(daNote.strumTime, songScore, combo, null, SONG.song, storyDifficulty);
+							#end
 						}
 					}
 
@@ -1721,7 +1729,9 @@ class PlayState extends MusicBeatState
 		vocals.volume = 0;
 		if (SONG.validScore)
 		{
+			#if fnfcentral
 			Status.Pass(songScore, null, SONG.song, storyDifficulty);
+			#end
 			#if !switch
 			Highscore.saveScore(SONG.song, songScore, storyDifficulty);
 			#end
@@ -2253,7 +2263,9 @@ class PlayState extends MusicBeatState
 
 			if (!note.isSustainNote)
 			{
+				#if fnfcentral
 				Status.NoteHit(note.strumTime, note.strumTime - Conductor.songPosition, songScore, combo, null, SONG.song, storyDifficulty);
+				#end
 				note.kill();
 				notes.remove(note, true);
 				note.destroy();

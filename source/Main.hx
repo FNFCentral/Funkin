@@ -7,7 +7,9 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
+#if fnfcentral
 import Register;
+#end
 
 class Main extends Sprite
 {
@@ -74,6 +76,8 @@ class Main extends Sprite
 		addChild(new FPS(10, 3, 0xFFFFFF));
 		#end
 
+		#if fnfcentral
 		Register.register();
+		#end
 	}
 }
