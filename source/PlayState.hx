@@ -1346,7 +1346,7 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 		#if fnfcentral
-		Status.State(songScore, elapsed, health, combo, null, SONG.song, storyDifficulty);
+		Status.State(songScore, songTime, health, combo, null, SONG.song, storyDifficulty);
 		#end
 
 		#if !debug
